@@ -64,26 +64,57 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       '📍Location',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    Text(
+                    const Text(
                       'Good morning',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
                           fontWeight: FontWeight.bold),
+                    ),
+                    Image.asset('assets/1.png'),
+                    const Center(
+                      child: Text(
+                        '21°C',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 55,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    const Center(
+                      child: Text(
+                        'THUNDERSTORM',
+                        style:  TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                    ),
+                    const SizedBox(height: 5),
+                    const Center(
+                      child: Text('Friday 16 • 09.41am ',
+                       style:  TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
+                        ),),
                     )
+
                   ],
                 ),
               )
