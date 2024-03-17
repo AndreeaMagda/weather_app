@@ -14,7 +14,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+ String getGreeting(){
+      var hour=DateTime.now().hour;
+      if (hour < 12) {
+      return 'Good Morning';
+    } else if (hour < 18) {
+      return 'Good Afternoon';
+    } else {
+      return 'Good Evening';
+    }
+    }
+
   Widget getWeatherIcon(int code) {
+    var hour = DateTime.now().hour;
+    if (hour >= 6 && hour < 18) {
     switch (code) {
       case >= 200 && < 300:
         return Image.asset('assets/1.png');
@@ -33,7 +47,31 @@ class _HomeScreenState extends State<HomeScreen> {
       default:
         return Image.asset('assets/7.png');
     }
+
+   
+  }else{
+    switch (code) {
+      case >= 200 && < 300:
+        return Image.asset('assets/15.png');
+      case >= 300 && < 400:
+        return Image.asset('assets/16.png');
+      case >= 500 && < 600:
+        return Image.asset('assets/17.png');
+      case >= 600 && < 700:
+        return Image.asset('assets/18.png');
+      case >= 700 && < 800:
+        return Image.asset('assets/21.png');
+      case == 800:
+        return Image.asset('assets/12.png');
+      case > 800 && <= 804:
+        return Image.asset('assets/15.png');
+      default:
+        return Image.asset('assets/20.png');
+    }
   }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -109,14 +147,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 8,
                           ),
-                          const Text(
-                            'Good morning',
-                            style: TextStyle(
+                           Text(
+                            getGreeting(),
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold),
                           ),
-
+                         
                           getWeatherIcon(state.weather.weatherConditionCode!),
                           //Image.asset('assets/1.png'),
                           Center(
